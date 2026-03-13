@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo RedeCiência DF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Cabeçalho -->
+    <header class="bg-brand-700 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Catálogo de Membros da RedeCIÊNCIA do DF</h1>
+            <p class="text-brand-100 text-lg">Conheça as instituições, projetos e espaços que promovem a ciência no Distrito Federal.</p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Onde os cartões serão renderizados pelo JavaScript -->
+        <div id="grid-membros" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Os cards entrarão aqui dinamicamente -->
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-gray-800 text-white py-6 mt-12 text-center">
+        <p>&copy; 2026 RedeCIÊNCIA do DF. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE DADOS E RENDERIZAÇÃO -->
+    <script>
+        /* ====================================================================
+        COMO EDITAR AS FOTOS E TEXTOS:
+        1. Para mudar a foto, troque o link que está em "imagem" por um link de uma foto real.
+        2. Para mudar o texto, apague a frase "Insira aqui o texto..." em "texto" e escreva o que desejar.
+        ====================================================================
+        */
+
+        const membros = [
+            {
+                id: 1,
+                nome: "Museu Virtual de Ciência e Tecnologia",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Gilberto Lacerda Santos | glacerda@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o museu..."
+            },
+            {
+                id: 2,
+                nome: "Caesb",
+                instituicao: "Companhia de Saneamento Ambiental do DF",
+                contato: "Erika Radespiel | erikafsilva@caesb.df.gov.br | (61) 98122-6746",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Caesb..."
+            },
+            {
+                id: 3,
+                nome: "SESI Lab",
+                instituicao: "SESI / CNI",
+                contato: "Luciana Conrado Martins | luciana.martins@sesicni.com.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o SESI Lab..."
+            },
+            {
+                id: 4,
+                nome: "Jardim Botânico de Brasília",
+                instituicao: "Jardim Botânico de Brasília (JBB)",
+                contato: "Priscila Oliveira Rosa | priscila.rosa@jbb.df.gov.br | (61) 98199-1494",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Jardim Botânico..."
+            },
+            {
+                id: 5,
+                nome: "Centro Vocacional Tecnológico em Agroecologia (CVTUnB)",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Ana Maria Resende Junqueira | anamaria@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o CVTUnB..."
+            },
+            {
+                id: 6,
+                nome: "Brasília Ambiental (SUCON)",
+                instituicao: "Instituto Brasília Ambiental (IBRAM)",
+                contato: "Vanessa Oliveira | vanessa.oliveira@ibram.df.gov.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a SUCON..."
+            },
+            {
+                id: 7,
+                nome: "Museu de Anatomia Humana da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Bárbara de Lima Lucas | mah@unb.br | (61) 3107-1920",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Anatomia..."
+            },
+            {
+                id: 8,
+                nome: "Centro Cultural Três Poderes e Espaço Oscar Niemeyer",
+                instituicao: "SECEC-DF",
+                contato: "Rafael Rangel Soffredi | cc3poderes@cultura.df.gov.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Centro Cultural..."
+            },
+            {
+                id: 9,
+                nome: "Museu de História Natural da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Gilberto Lacerda Santos | glacerda@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de História Natural..."
+            },
+            {
+                id: 10,
+                nome: "Museu de Biologia da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Julia Klaczko | jklaczko@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Biologia..."
+            },
+            {
+                id: 11,
+                nome: "Museu de Geociências da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Julia Barbosa Curto Ma | juliacurto@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Geociências..."
+            },
+            {
+                id: 12,
+                nome: "Programa de Educação Fiscal do DF (PEFDF)",
+                instituicao: "Secretaria de Estado de Economia do DF",
+                contato: "Cicero Roberto de Melo | cicero.melo@economia.df.gov.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o PEFDF..."
+            },
+            {
+                id: 13,
+                nome: "Hub da Indústria DF",
+                instituicao: "Federação das Indústrias do DF (FIBRA)",
+                contato: "Jamal Jorge Bittar | (61) 3362-6017",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Hub da Indústria..."
+            },
+            {
+                id: 14,
+                nome: "Observatório Sismológico da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Mônica Von Huelsen | monisis@unb.br | (61) 99298-3311",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Observatório Sismológico..."
+            },
+            {
+                id: 15,
+                nome: "Serviço Geológico do Brasil (SGB)",
+                instituicao: "Serviço Geológico do Brasil",
+                contato: "Dario Dias Peixoto | dario.peixoto@sgb.gov.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o SGB..."
+            },
+            {
+                id: 16,
+                nome: "Astronomia Sobre Rodas – Planetário Móvel",
+                instituicao: "Sesc DF",
+                contato: "Demetrius Leão | demetriusl@sescdf.com.br | (61) 99981-1927",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Planetário Móvel..."
+            },
+            {
+                id: 17,
+                nome: "Parque Nacional de Brasília (Água Mineral)",
+                instituicao: "ICMBio",
+                contato: "Enrique Mieza Balbuena | nea.pnb@icmbio.gov.br | (62) 99108-7153",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Parque Nacional..."
+            },
+            {
+                id: 18,
+                nome: "Museu de Valores do Banco Central",
+                instituicao: "Banco Central do Brasil (BCB)",
+                contato: "Karla Valente e Mary Cheng | museudevalores@bcb.gov.br | (61) 3414-4020",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Valores..."
+            },
+            {
+                id: 19,
+                nome: "Memorial dos Povos Indígenas",
+                instituicao: "SECEC-DF",
+                contato: "David Terena; Sara Seilet | mpi@cultura.df.gov.br | (61) 3344-1154",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Memorial..."
+            },
+            {
+                id: 20,
+                nome: "Fundação Jardim Zoológico de Brasília",
+                instituicao: "FJZB",
+                contato: "Juyana Barreto | atendimento@zoo.df.gov.br | (61) 3445-7048",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Zoológico..."
+            },
+            {
+                id: 21,
+                nome: "Experimentoteca do Instituto de Física",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "André Barcellos | experimentoteca.fis@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Experimentoteca..."
+            },
+            {
+                id: 22,
+                nome: "Observatório Astronômico da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "Prof. José Leonardo | leonardoferreira@unb.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Observatório Astronômico..."
+            },
+            {
+                id: 23,
+                nome: "Museu do SLU",
+                instituicao: "Serviço de Limpeza Urbana do DF (SLU)",
+                contato: "Luana Lemes | ascom@slu.df.gov.br | (61) 3213-0109",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu do SLU..."
+            },
+            {
+                id: 24,
+                nome: "Museu do Catetinho",
+                instituicao: "SECEC-DF",
+                contato: "Everaldo Rodrigues | (61) 98653-7670",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu do Catetinho..."
+            },
+            {
+                id: 25,
+                nome: "Agência Espacial Brasileira (AEB)",
+                instituicao: "Ministério da Ciência, Tecnologia e Inovação",
+                contato: "(61) 2033-4000",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Agência Espacial Brasileira..."
+            },
+            {
+                id: 26,
+                nome: "Arquivo Público do Distrito Federal",
+                instituicao: "Governo do Distrito Federal (GDF)",
+                contato: "(61) 3313-5981",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Arquivo Público..."
+            },
+            {
+                id: 27,
+                nome: "Embrapa",
+                instituicao: "Ministério da Agricultura, Pecuária e Abastecimento",
+                contato: "(61) 3448-4433",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Embrapa..."
+            },
+            {
+                id: 28,
+                nome: "Fiocruz Brasília",
+                instituicao: "Fundação Oswaldo Cruz (Fiocruz)",
+                contato: "(61) 3329-4500",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Fiocruz Brasília..."
+            },
+            {
+                id: 29,
+                nome: "Instituto Nacional de Meteorologia (INMET)",
+                instituicao: "INMET",
+                contato: "helenir.oliveira@inmet.gov.br",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o INMET..."
+            },
+            {
+                id: 30,
+                nome: "Museu da Imprensa",
+                instituicao: "Imprensa Nacional",
+                contato: "(61) 3441-9618",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu da Imprensa..."
+            },
+            {
+                id: 31,
+                nome: "Museu de Anatomia Veterinária da UnB",
+                instituicao: "Universidade de Brasília (UnB)",
+                contato: "(61) 3107-2923",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Anatomia Veterinária..."
+            },
+            {
+                id: 32,
+                nome: "Museu de Armas da PCDF",
+                instituicao: "Polícia Civil do Distrito Federal (PCDF)",
+                contato: "cgpsrcc@pcdf.df.gov.br | (61) 3207-5458",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Armas..."
+            },
+            {
+                id: 33,
+                nome: "Museu de Drogas da PCDF",
+                instituicao: "Polícia Civil do Distrito Federal (PCDF)",
+                contato: "espc-cepud@pcdf.df.gov.br | (61) 3207-5458",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu de Drogas..."
+            },
+            {
+                id: 34,
+                nome: "Museu Vivo da Memória Candanga",
+                instituicao: "SECEC-DF",
+                contato: "mvmc@cultura.df.gov.br | (61) 3301-3590",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Museu Vivo da Memória Candanga..."
+            },
+            {
+                id: 35,
+                nome: "Planetário de Brasília",
+                instituicao: "Secretaria de Ciência, Tecnologia e Inovação",
+                contato: "planetario@secti.df.gov.br | (61) 98199-2692",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre o Planetário..."
+            },
+            {
+                id: 36,
+                nome: "Transitolândia - Escola Vivencial de Trânsito",
+                instituicao: "DER-DF",
+                contato: "(61) 3111-5791",
+                imagem: "https://via.placeholder.com/800x500/e2e8f0/475569?text=Adicione+uma+Foto+Aqui",
+                texto: "Insira aqui o texto descritivo sobre a Transitolândia..."
+            }
+        ];
+
+        const container = document.getElementById('grid-membros');
+
+        membros.forEach(membro => {
+            const card = document.createElement('div');
+            card.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col";
+            
+            card.innerHTML = `
+                <!-- Imagem -->
+                <div class="h-48 w-full bg-gray-200">
+                    <img src="${membro.imagem}" alt="Foto de ${membro.nome}" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Corpo do Card -->
+                <div class="p-6 flex-grow flex flex-col">
+                    <div class="uppercase tracking-wide text-xs text-brand-600 font-semibold mb-1">
+                        ${membro.instituicao}
+                    </div>
+                    <h3 class="block mt-1 text-lg leading-tight font-bold text-gray-900 mb-3">
+                        ${membro.id}. ${membro.nome}
+                    </h3>
+                    
+                    <!-- Texto / Descrição -->
+                    <p class="mt-2 text-gray-600 text-sm flex-grow">
+                        ${membro.texto}
+                    </p>
+                    
+                    <!-- Rodapé de Contato -->
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <p class="text-xs text-gray-500 flex items-start">
+                            <i class="fas fa-address-book mt-1 mr-2 text-brand-500"></i>
+                            <span>${membro.contato}</span>
+                        </p>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
