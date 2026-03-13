@@ -27,60 +27,321 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
+    <!-- Cabeçalho -->
     <header class="bg-brand-700 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
             <h1 class="text-3xl md:text-4xl font-bold mb-2">Catálogo de Membros da RedeCIÊNCIA do DF</h1>
-            <p class="text-brand-100 text-lg">Conheça as instituições, projetos e espaços que promovem a ciência no Distrito Federal.</p>
+            <p class="text-brand-100 text-lg">Conheça as instituições, projetos e espaços que promovem a educação e a divulgação científica no Distrito Federal.</p>
         </div>
     </header>
 
+    <!-- Conteúdo Principal -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Onde os cartões serão renderizados pelo JavaScript -->
         <div id="grid-membros" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
+            <!-- Os cards entrarão aqui dinamicamente -->
+        </div>
     </main>
 
+    <!-- Rodapé -->
     <footer class="bg-gray-800 text-white py-6 mt-12 text-center">
         <p>&copy; 2026 RedeCIÊNCIA do DF. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- SCRIPT DE DADOS E RENDERIZAÇÃO -->
     <script>
+        // Caminho oficial para a imagem que você subiu no GitHub
+        const logoOficial = "logo.png";
+
         const membros = [
-            { id: 1, nome: "Museu Virtual de Ciência e Tecnologia", instituicao: "Universidade de Brasília (UnB)", contato: "Gilberto Lacerda Santos | glacerda@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 2, nome: "Caesb", instituicao: "Companhia de Saneamento Ambiental do DF", contato: "Erika Radespiel | erikafsilva@caesb.df.gov.br | (61) 98122-6746", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 3, nome: "SESI Lab", instituicao: "SESI / CNI", contato: "Luciana Conrado Martins | luciana.martins@sesicni.com.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 4, nome: "Jardim Botânico de Brasília", instituicao: "Jardim Botânico de Brasília (JBB)", contato: "Priscila Oliveira Rosa | priscila.rosa@jbb.df.gov.br | (61) 98199-1494", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 5, nome: "Centro Vocacional Tecnológico em Agroecologia (CVTUnB)", instituicao: "Universidade de Brasília (UnB)", contato: "Ana Maria Resende Junqueira | anamaria@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 6, nome: "Brasília Ambiental (SUCON)", instituicao: "Instituto Brasília Ambiental (IBRAM)", contato: "Vanessa Oliveira | vanessa.oliveira@ibram.df.gov.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 7, nome: "Museu de Anatomia Humana da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Bárbara de Lima Lucas | mah@unb.br | (61) 3107-1920", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 8, nome: "Centro Cultural Três Poderes e Espaço Oscar Niemeyer", instituicao: "SECEC-DF", contato: "Rafael Rangel Soffredi | cc3poderes@cultura.df.gov.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 9, nome: "Museu de História Natural da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Gilberto Lacerda Santos | glacerda@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 10, nome: "Museu de Biologia da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Julia Klaczko | jklaczko@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 11, nome: "Museu de Geociências da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Julia Barbosa Curto Ma | juliacurto@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 12, nome: "Programa de Educação Fiscal do DF (PEFDF)", instituicao: "Secretaria de Estado de Economia do DF", contato: "Cicero Roberto de Melo | cicero.melo@economia.df.gov.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 13, nome: "Hub da Indústria DF", instituicao: "Federação das Indústrias do DF (FIBRA)", contato: "Jamal Jorge Bittar | (61) 3362-6017", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 14, nome: "Observatório Sismológico da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Mônica Von Huelsen | monisis@unb.br | (61) 99298-3311", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 15, nome: "Serviço Geológico do Brasil (SGB)", instituicao: "Serviço Geológico do Brasil", contato: "Dario Dias Peixoto | dario.peixoto@sgb.gov.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 16, nome: "Astronomia Sobre Rodas – Planetário Móvel", instituicao: "Sesc DF", contato: "Demetrius Leão | demetriusl@sescdf.com.br | (61) 99981-1927", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 17, nome: "Parque Nacional de Brasília (Água Mineral)", instituicao: "ICMBio", contato: "Enrique Mieza Balbuena | nea.pnb@icmbio.gov.br | (62) 99108-7153", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 18, nome: "Museu de Valores do Banco Central", instituicao: "Banco Central do Brasil (BCB)", contato: "Karla Valente e Mary Cheng | museudevalores@bcb.gov.br | (61) 3414-4020", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 19, nome: "Memorial dos Povos Indígenas", instituicao: "SECEC-DF", contato: "David Terena; Sara Seilet | mpi@cultura.df.gov.br | (61) 3344-1154", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 20, nome: "Fundação Jardim Zoológico de Brasília", instituicao: "FJZB", contato: "Juyana Barreto | atendimento@zoo.df.gov.br | (61) 3445-7048", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 21, nome: "Experimentoteca do Instituto de Física", instituicao: "Universidade de Brasília (UnB)", contato: "André Barcellos | experimentoteca.fis@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 22, nome: "Observatório Astronômico da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "Prof. José Leonardo | leonardoferreira@unb.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 23, nome: "Museu do SLU", instituicao: "Serviço de Limpeza Urbana do DF (SLU)", contato: "Luana Lemes | ascom@slu.df.gov.br | (61) 3213-0109", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 24, nome: "Museu do Catetinho", instituicao: "SECEC-DF", contato: "Everaldo Rodrigues | (61) 98653-7670", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 25, nome: "Agência Espacial Brasileira (AEB)", instituicao: "Ministério da Ciência, Tecnologia e Inovação", contato: "(61) 2033-4000", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 26, nome: "Arquivo Público do Distrito Federal", instituicao: "Governo do Distrito Federal (GDF)", contato: "(61) 3313-5981", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 27, nome: "Embrapa", instituicao: "Ministério da Agricultura, Pecuária e Abastecimento", contato: "(61) 3448-4433", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 28, nome: "Fiocruz Brasília", instituicao: "Fundação Oswaldo Cruz (Fiocruz)", contato: "(61) 3329-4500", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 29, nome: "Instituto Nacional de Meteorologia (INMET)", instituicao: "INMET", contato: "helenir.oliveira@inmet.gov.br", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 30, nome: "Museu da Imprensa", instituicao: "Imprensa Nacional", contato: "(61) 3441-9618", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 31, nome: "Museu de Anatomia Veterinária da UnB", instituicao: "Universidade de Brasília (UnB)", contato: "(61) 3107-2923", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 32, nome: "Museu de Armas da PCDF", instituicao: "Polícia Civil do Distrito Federal (PCDF)", contato: "cgpsrcc@pcdf.df.gov.br | (61) 3207-5458", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 33, nome: "Museu de Drogas da PCDF", instituicao: "Polícia Civil do Distrito Federal (PCDF)", contato: "espc-cepud@pcdf.df.gov.br | (61) 3207-5458", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 34, nome: "Museu Vivo da Memória Candanga", instituicao: "SECEC-DF", contato: "mvmc@cultura.df.gov.br | (61) 3301-3590", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 35, nome: "Planetário de Brasília", instituicao: "Secretaria de Ciência, Tecnologia e Inovação", contato: "planetario@secti.df.gov.br | (61) 98199-2692", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." },
-            { id: 36, nome: "Transitolândia - Escola Vivencial de Trânsito", instituicao: "DER-DF", contato: "(61) 3111-5791", imagem: "logo.png", texto: "Insira aqui o texto descritivo..." }
+            { 
+                id: 1, 
+                nome: "Museu Virtual de Ciência e Tecnologia", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Gilberto Lacerda Santos | glacerda@unb.br", 
+                imagem: logoOficial, 
+                texto: "O Museu Virtual de Ciência e Tecnologia da UnB é uma plataforma online criada para divulgar o conhecimento científico produzido na Universidade de Brasília, tornando-o acessível a professores e estudantes de todo o Brasil." 
+            },
+            { 
+                id: 2, 
+                nome: "Caesb", 
+                instituicao: "Companhia de Saneamento Ambiental do DF", 
+                contato: "Erika Radespiel | erikafsilva@caesb.df.gov.br | (61) 98122-6746", 
+                imagem: logoOficial, 
+                texto: "A Companhia de Saneamento Ambiental do Distrito Federal (CAESB) é responsável pelos serviços de água, esgoto e saneamento básico no DF. Disponibiliza visitas para conhecer o processo de tratamento de água e esgoto." 
+            },
+            { 
+                id: 3, 
+                nome: "SESI Lab", 
+                instituicao: "SESI / CNI", 
+                contato: "Luciana Conrado Martins | luciana.martins@sesicni.com.br", 
+                imagem: logoOficial, 
+                texto: "Um museu interativo de arte, ciência e tecnologia. Com uma proposta inovadora de promover experiências educativas e interativas, é um espaço projetado para estimular o pensamento crítico e a criatividade." 
+            },
+            { 
+                id: 4, 
+                nome: "Jardim Botânico de Brasília", 
+                instituicao: "Jardim Botânico de Brasília (JBB)", 
+                contato: "Priscila Oliveira Rosa | priscila.rosa@jbb.df.gov.br | (61) 98199-1494", 
+                imagem: logoOficial, 
+                texto: "O JBB é uma área protegida com missão voltada para a manutenção de coleções de plantas, pesquisa, educação ambiental e lazer. Conhecido como o 'Jardim do Cerrado', oferece trilhas interpretativas e espaços temáticos." 
+            },
+            { 
+                id: 5, 
+                nome: "Centro Vocacional Tecnológico em Agroecologia", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Ana Maria Resende Junqueira | anamaria@unb.br", 
+                imagem: logoOficial, 
+                texto: "O CVTUnB tem a missão de gerar e divulgar conhecimentos sobre sistemas agrícolas sustentáveis, com enfoque em técnicas de conservação do solo, água e manejo ecológico da fauna e flora do Cerrado." 
+            },
+            { 
+                id: 6, 
+                nome: "Brasília Ambiental (SUCON)", 
+                instituicao: "Instituto Brasília Ambiental (IBRAM)", 
+                contato: "Vanessa Oliveira | vanessa.oliveira@ibram.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Autarquia responsável por executar a política ambiental e de recursos hídricos do DF. Administra as Unidades de Conservação (UCs) promovendo a educação ambiental e o contato direto com a biodiversidade." 
+            },
+            { 
+                id: 7, 
+                nome: "Museu de Anatomia Humana da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Bárbara de Lima Lucas | mah@unb.br | (61) 3107-1920", 
+                imagem: logoOficial, 
+                texto: "Um espaço universitário de ciência dedicado à divulgação do conhecimento sobre o corpo humano. Conta com um acervo diversificado de peças anatômicas preservadas (órgãos, esqueletos, etc)." 
+            },
+            { 
+                id: 8, 
+                nome: "Centro Cultural Três Poderes e Espaço Oscar Niemeyer", 
+                instituicao: "SECEC-DF", 
+                contato: "Rafael Rangel Soffredi | cc3poderes@cultura.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Complexo na Praça dos Três Poderes que inclui o Museu Histórico de Brasília, o Espaço Lúcio Costa (com a maquete de Brasília) e o Panteão da Pátria e da Liberdade Tancredo Neves." 
+            },
+            { 
+                id: 9, 
+                nome: "Museu de História Natural da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Gilberto Lacerda Santos | glacerda@unb.br", 
+                imagem: logoOficial, 
+                texto: "O Museu de História Natural atua na preservação, pesquisa e divulgação do acervo natural, sendo fundamental para o conhecimento da história natural da região." 
+            },
+            { 
+                id: 10, 
+                nome: "Museu de Biologia da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Julia Klaczko | jklaczko@unb.br", 
+                imagem: logoOficial, 
+                texto: "Museu universitário de ciência natural focado em pesquisar, preservar e comunicar o patrimônio científico da UnB, especialmente a biodiversidade do Cerrado, com exposições interativas." 
+            },
+            { 
+                id: 11, 
+                nome: "Museu de Geociências da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Julia Barbosa Curto Ma | juliacurto@unb.br", 
+                imagem: logoOficial, 
+                texto: "Expõe e estuda um rico acervo de rochas, minerais, fósseis, meteoritos e peças arqueológicas, contando a história da Terra e da vida. Foco em pesquisas e ações educativas." 
+            },
+            { 
+                id: 12, 
+                nome: "Programa de Educação Fiscal do DF", 
+                instituicao: "Secretaria de Estado de Economia do DF", 
+                contato: "Cicero Roberto de Melo | cicero.melo@economia.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Projeto coordenado pela Assessoria de Educação Fiscal que envolve professores e estudantes de escolas públicas para disseminar a função social do tributo e o controle social dos recursos." 
+            },
+            { 
+                id: 13, 
+                nome: "Hub da Indústria DF", 
+                instituicao: "Federação das Indústrias do DF (FIBRA)", 
+                contato: "Jamal Jorge Bittar | (61) 3362-6017", 
+                imagem: logoOficial, 
+                texto: "O Sistema Fibra representa a indústria do Distrito Federal. Desenvolve competências em robótica, ciências e inovação, ligando academia e ambiente de produção." 
+            },
+            { 
+                id: 14, 
+                nome: "Observatório Sismológico da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Mônica Von Huelsen | monisis@unb.br | (61) 99298-3311", 
+                imagem: logoOficial, 
+                texto: "Instituição de referência que monitora e estuda terremotos e outros fenômenos sísmicos. Possui Mostra Sismológica e simulador de terremotos para o público." 
+            },
+            { 
+                id: 15, 
+                nome: "Serviço Geológico do Brasil (SGB)", 
+                instituicao: "Serviço Geológico do Brasil", 
+                contato: "Dario Dias Peixoto | dario.peixoto@sgb.gov.br", 
+                imagem: logoOficial, 
+                texto: "Atua na área de geociência audiovisual, produzindo materiais e conhecimentos para a difusão da geologia e ciências da terra para a sociedade." 
+            },
+            { 
+                id: 16, 
+                nome: "Astronomia Sobre Rodas – Planetário Móvel", 
+                instituicao: "Sesc DF", 
+                contato: "Demetrius Leão | demetriusl@sescdf.com.br | (61) 99981-1927", 
+                imagem: logoOficial, 
+                texto: "Projeto itinerante que leva conhecimentos de astronomia e ciência espacial para diferentes públicos por meio de um planetário móvel interativo." 
+            },
+            { 
+                id: 17, 
+                nome: "Parque Nacional de Brasília (Água Mineral)", 
+                instituicao: "ICMBio", 
+                contato: "Enrique Mieza Balbuena | nea.pnb@icmbio.gov.br", 
+                imagem: logoOficial, 
+                texto: "Unidade de conservação federal que protege nascentes e a biodiversidade do Cerrado. Essencial para a educação ambiental, ecoturismo e conservação de espécies." 
+            },
+            { 
+                id: 18, 
+                nome: "Museu de Valores do Banco Central", 
+                instituicao: "Banco Central do Brasil (BCB)", 
+                contato: "Karla Valente e Mary Cheng | museudevalores@bcb.gov.br", 
+                imagem: logoOficial, 
+                texto: "Espaço que conta a história do dinheiro e da economia brasileira através de um vasto acervo numismático, mostrando a evolução dos meios de pagamento." 
+            },
+            { 
+                id: 19, 
+                nome: "Memorial dos Povos Indígenas", 
+                instituicao: "SECEC-DF", 
+                contato: "David Terena; Sara Seilet | mpi@cultura.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Museu e centro cultural projetado por Oscar Niemeyer em forma de maloca Yanomami. Celebra a diversidade e riqueza das culturas indígenas do Brasil." 
+            },
+            { 
+                id: 20, 
+                nome: "Fundação Jardim Zoológico de Brasília", 
+                instituicao: "FJZB", 
+                contato: "Juyana Barreto | atendimento@zoo.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Dedicada à conservação da fauna, educação ambiental e pesquisa. Participa de programas de conservação de espécies ameaçadas e promove o bem-estar animal." 
+            },
+            { 
+                id: 21, 
+                nome: "Experimentoteca do Instituto de Física", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "André Barcellos | experimentoteca.fis@unb.br", 
+                imagem: logoOficial, 
+                texto: "Espaço de exposição permanente e interativa de fenômenos e experimentos de Física. Transforma conceitos abstratos em experiências práticas." 
+            },
+            { 
+                id: 22, 
+                nome: "Observatório Astronômico da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "Prof. José Leonardo | leonardoferreira@unb.br", 
+                imagem: logoOficial, 
+                texto: "Laboratório didático e de pesquisa que apoia o ensino de Física, desenvolvendo pesquisa em astrofísica e exploração espacial com telescópios para observação do céu." 
+            },
+            { 
+                id: 23, 
+                nome: "Museu do SLU", 
+                instituicao: "Serviço de Limpeza Urbana do DF (SLU)", 
+                contato: "Luana Lemes | ascom@slu.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Espaço que preserva a história de Brasília a partir dos resíduos recolhidos. Promove a educação ambiental, ensinando sobre descarte, reciclagem e compostagem." 
+            },
+            { 
+                id: 24, 
+                nome: "Museu do Catetinho", 
+                instituicao: "SECEC-DF", 
+                contato: "Everaldo Rodrigues | (61) 98653-7670", 
+                imagem: logoOficial, 
+                texto: "Primeira residência oficial de Juscelino Kubitschek, conhecida como 'Palácio de Tábuas'. Preserva a memória da construção da capital com mobiliário original." 
+            },
+            { 
+                id: 25, 
+                nome: "Agência Espacial Brasileira (AEB)", 
+                instituicao: "Ministério da Ciência e Tecnologia", 
+                contato: "(61) 2033-4000", 
+                imagem: logoOficial, 
+                texto: "O Programa AEB Escola desperta o interesse por ciência e tecnologia espacial através de cursos e atividades que incentivam futuras carreiras no setor." 
+            },
+            { 
+                id: 26, 
+                nome: "Arquivo Público do Distrito Federal", 
+                instituicao: "Governo do Distrito Federal (GDF)", 
+                contato: "(61) 3313-5981", 
+                imagem: logoOficial, 
+                texto: "Responsável por recolher, preservar e disponibilizar documentos históricos produzidos pelo Governo do DF, guardando a memória de Brasília." 
+            },
+            { 
+                id: 27, 
+                nome: "Embrapa", 
+                instituicao: "Ministério da Agricultura, Pecuária e Abastecimento", 
+                contato: "(61) 3448-4433", 
+                imagem: logoOficial, 
+                texto: "Desenvolve tecnologia para a agropecuária. O programa Embrapa & Escola oferece visitas a campos para vivenciar ciência, sustentabilidade e agricultura regenerativa." 
+            },
+            { 
+                id: 28, 
+                nome: "Fiocruz Brasília", 
+                instituicao: "Fundação Oswaldo Cruz (Fiocruz)", 
+                contato: "(61) 3329-4500", 
+                imagem: logoOficial, 
+                texto: "Focada em formação, inteligência e integração para a saúde pública, atuando com pesquisa, ensino e inovação no DF, com foco no SUS." 
+            },
+            { 
+                id: 29, 
+                nome: "Instituto Nacional de Meteorologia", 
+                instituicao: "INMET", 
+                contato: "helenir.oliveira@inmet.gov.br", 
+                imagem: logoOficial, 
+                texto: "Órgão responsável pelas informações e previsões meteorológicas no país, atuando na observação e pesquisa sobre o clima." 
+            },
+            { 
+                id: 30, 
+                nome: "Museu da Imprensa", 
+                instituicao: "Imprensa Nacional", 
+                contato: "(61) 3441-9618", 
+                imagem: logoOficial, 
+                texto: "Preserva a história do Brasil com peças raras, como o prelo em que Machado de Assis trabalhou. Proporciona acesso à evolução da imprensa no país." 
+            },
+            { 
+                id: 31, 
+                nome: "Museu de Anatomia Veterinária da UnB", 
+                instituicao: "Universidade de Brasília (UnB)", 
+                contato: "(61) 3107-2923", 
+                imagem: logoOficial, 
+                texto: "Oferece exposições sobre anatomia animal, conservação e a atuação do veterinário, favorecendo a popularização da ciência animal." 
+            },
+            { 
+                id: 32, 
+                nome: "Museu de Armas da PCDF", 
+                instituicao: "Polícia Civil do Distrito Federal (PCDF)", 
+                contato: "cgpsrcc@pcdf.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Espaço para estudo e memória da evolução bélica e policial, preservando o desenvolvimento histórico das armas e equipamentos." 
+            },
+            { 
+                id: 33, 
+                nome: "Museu de Drogas da PCDF", 
+                instituicao: "Polícia Civil do Distrito Federal (PCDF)", 
+                contato: "espc-cepud@pcdf.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Iniciativa de prevenção ao uso de entorpecentes, exibindo amostras e conscientizando sobre as consequências físicas, psíquicas e sociais do consumo." 
+            },
+            { 
+                id: 34, 
+                nome: "Museu Vivo da Memória Candanga", 
+                instituicao: "SECEC-DF", 
+                contato: "mvmc@cultura.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Preserva a história dos pioneiros (candangos) que construíram a capital, funcionando no antigo Hospital JK e exibindo objetos da época." 
+            },
+            { 
+                id: 35, 
+                nome: "Planetário de Brasília", 
+                instituicao: "Secretaria de Ciência, Tecnologia e Inovação", 
+                contato: "planetario@secti.df.gov.br", 
+                imagem: logoOficial, 
+                texto: "Espaço voltado à educação astronômica. Oferece sessões na cúpula, exposições e contato com artefatos como meteoritos." 
+            },
+            { 
+                id: 36, 
+                nome: "Transitolândia", 
+                instituicao: "DER-DF", 
+                contato: "(61) 3111-5791", 
+                imagem: logoOficial, 
+                texto: "Centro de educação para o trânsito que simula uma cidade em miniatura para ensinar crianças sobre regras, cidadania e segurança viária." 
+            }
         ];
 
         const container = document.getElementById('grid-membros');
@@ -90,10 +351,12 @@
             card.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col";
             
             card.innerHTML = `
+                <!-- Imagem -->
                 <div class="h-48 w-full bg-white p-4 flex items-center justify-center border-b border-gray-100">
-                    <img src="${membro.imagem}" alt="Foto de ${membro.nome}" class="max-w-full max-h-full object-contain">
+                    <img src="${membro.imagem}" alt="Foto de ${membro.nome}" class="max-w-full max-h-full object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Sem+Imagem'">
                 </div>
                 
+                <!-- Corpo do Card -->
                 <div class="p-6 flex-grow flex flex-col">
                     <div class="uppercase tracking-wide text-xs text-brand-600 font-semibold mb-1">
                         ${membro.instituicao}
@@ -102,10 +365,12 @@
                         ${membro.id}. ${membro.nome}
                     </h3>
                     
+                    <!-- Texto / Descrição -->
                     <p class="mt-2 text-gray-600 text-sm flex-grow">
                         ${membro.texto}
                     </p>
                     
+                    <!-- Rodapé de Contato -->
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <p class="text-xs text-gray-500 flex items-start">
                             <i class="fas fa-address-book mt-1 mr-2 text-brand-500"></i>
